@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../config/application'
+
+info_message("Let's start this feature")
+
+DownloadImagesCLI.start(ARGV)
