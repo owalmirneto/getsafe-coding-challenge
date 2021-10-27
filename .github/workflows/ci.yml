@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+      - name: Install libpq-dev
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Verify ruby version
+        run: ruby --version
+      - name: Install and configure bundler
+        run: |
+          gem install bundler
+          bin/bundle --version
+          bin/bundle install --jobs 4 --retry 3
+      - name: rubocop
+        run: bin/rubocop
+      - name: RSpec
+        run: bin/rspec
