@@ -26,5 +26,6 @@ class ApplicationCLI
     raise NotImplementedError, 'subclass did not define #execution'
   end
 
-  def feedback; end
+  def feedback
+  end
 end

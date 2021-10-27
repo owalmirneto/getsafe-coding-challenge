@@ -6,7 +6,7 @@ class ImagesByFile
   end
 
   def initialize(file_path)
-    @file_path = "#{APP_ROOT}/#{file_path}"
+    @file_path = file_path
   end
 
   def perform
@@ -18,6 +18,12 @@ class ImagesByFile
   attr_reader :file_path
 
   def content_file
-    @content_file ||= File.read(file_path)
+    @content_file ||= File.read(current_file_path)
+  end
+
+  def current_file_path
+    file_path if File.exist?(file_path)
+
+    "#{APP_ROOT}/#{file_path}"
   end
 end

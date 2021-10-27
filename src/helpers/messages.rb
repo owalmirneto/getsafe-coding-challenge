@@ -2,6 +2,10 @@
 
 require 'colorize'
 
+def execute_message(text)
+  message("$ #{text}".cyan)
+end
+
 def info_message(text)
   message("❯ #{text}".blue)
 end
@@ -19,5 +23,5 @@ def success_message(text)
 end
 
 def message(text)
-  puts text
+  puts text if ENV['APP_ENV'] != 'test'
 end

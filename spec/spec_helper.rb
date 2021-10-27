@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+ENV['APP_ENV'] = 'test'
+
 require_relative '../config/application'
 
 Dir["#{APP_ROOT}/spec/{support,factories}/**/*.rb"].map { |f| require f }
