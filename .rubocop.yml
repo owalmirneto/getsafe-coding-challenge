@@ -1,0 +1,15 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
+  Exclude:
+    - bin/**/*
